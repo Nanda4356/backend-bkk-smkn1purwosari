@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('lowongans', function (Blueprint $table) {
             $table->id();
             $table->foreignId('perusahaan_id')->constrained('perusahaans')->onDelete('cascade');
-            $table->string('judul_lowongan', 255);
+            $table->string('judul_lowongan', 100);
             $table->string('deskripsi', 255);
             $table->date('tgl_tutup');
-            $table->boolean('status');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }

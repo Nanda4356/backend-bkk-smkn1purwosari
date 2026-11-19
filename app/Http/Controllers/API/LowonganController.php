@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LowonganRequest;
 use App\Http\Resources\LowonganCollection;
+use App\Http\Resources\LowonganResource;
 use App\Models\Lowongan;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -15,7 +17,7 @@ class LowonganController extends Controller
      */
     public function index()
     {
-        $lowongans =Lowongan::latest()->paginate(10);
+        $lowongans = Lowongan::latest()->paginate(10);
         return response()->json(
             new LowonganCollection($lowongans),
             Response::HTTP_OK
@@ -25,9 +27,14 @@ class LowonganController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(LowonganRequest $request)
     {
-        //
+        $lowongan = Lowongan::create($request->validated());
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lowongan berhasil dibuat',
+            'data' => new LowonganResource($lowongan),
+        ], Response::HTTP_CREATED);
     }
 
     /**
