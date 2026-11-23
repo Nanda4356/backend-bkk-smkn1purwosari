@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\AlumniController;
 use App\Http\Controllers\API\LamaranController;
 use App\Http\Controllers\API\LowonganController;
 use Illuminate\Http\Request;
@@ -11,3 +12,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('lowongan', LowonganController::class);
 Route::apiResource('lamaran', LamaranController::class);
+Route::apiResource('alumni', AlumniController::class);

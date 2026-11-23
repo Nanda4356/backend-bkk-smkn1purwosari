@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('tahun_lulus');
             $table->string('no_telp', 14)->unique();
             $table->string('alamat', 255);
-            $table->string('cv_file', 255);
+            $table->string('cv_file', 2048);
             $table->timestamps();
         });
     }

@@ -26,7 +26,7 @@ class LamaranRequest extends FormRequest
             'alumni_id' => ['required', 'exists:alumnis,id'],
             'lowongan_id' => ['required', 'exists:lowongans,id'],
             'tanggal_melamar' => 'required|date',
-            'berkas_lamaran' => 'required|string|max:255',
+            'berkas_lamaran' => 'required|string|max:2048',
             'status' => ['required', 'in:diproses,diterima,ditolak'],   
         ];
     }

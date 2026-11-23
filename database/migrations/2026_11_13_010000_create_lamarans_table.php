@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('alumni_id')->constrained('alumnis')->onDelete('cascade');
             $table->foreignId('lowongan_id')->constrained('lowongans')->onDelete('cascade');
-            $table->string('berkas_lamaran');
+            $table->string('berkas_lamaran', 2048);
             $table->date('tanggal_melamar');
             $table->enum('status', ['diproses', 'diterima', 'ditolak'])->default('diproses');
             $table->timestamps();
