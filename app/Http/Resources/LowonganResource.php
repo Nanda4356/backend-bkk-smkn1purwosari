@@ -17,10 +17,9 @@ class LowonganResource extends JsonResource
         return [
             'id' => $this->id,
             'perusahaan_id' => $this->perusahaan_id,
-            'judul' => $this->judul,
+            'judul' => $this->judul_lowongan,
             'deskripsi' => $this->deskripsi,
-            'tanggal_dibuka' => $this->tanggal_dibuka,
-            'tanggal_ditutup' => $this->tanggal_ditutup,
+            'tanggal_ditutup' => $this->tgl_tutup,
             'status' => $this->status,
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s'),

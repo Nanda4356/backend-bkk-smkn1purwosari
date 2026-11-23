@@ -48,16 +48,25 @@ class LowonganController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(LowonganRequest $request, Lowongan $lowongan)
     {
-        //
+        $lowongan->update($request->validated());
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lowongan berhasil diperbarui',
+            'data' => new LowonganResource($lowongan),
+        ], Response::HTTP_OK);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Lowongan $lowongan)
     {
-        //
+        $lowongan->delete();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Lowongan berhasil dihapus',
+        ], Response::HTTP_OK);
     }
 }
