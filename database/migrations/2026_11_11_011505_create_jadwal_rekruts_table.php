@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('nama_tahapan', 100);
             $table->date('tgl_pelaksanaan');
             $table->string('lokasi', 255);
-            $table->string('email_perusahaan', 255);
+            $table->string('email_perusahaan', 100);
             $table->timestamps();
         });
     }

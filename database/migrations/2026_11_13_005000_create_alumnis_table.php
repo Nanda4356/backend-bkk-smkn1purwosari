@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('alumnis', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('nisn', 10)->unique();
+            $table->integer('nisn')->unique();
             $table->string('nama_lengkap', 100);
             $table->string('jurusan', 42);
             $table->date('tahun_lulus');
-            $table->string('no_telp', 14)->unique();
+            $table->integer('no_telp')->unique();
             $table->string('alamat', 255);
             $table->string('cv_file', 2048);
             $table->timestamps();
